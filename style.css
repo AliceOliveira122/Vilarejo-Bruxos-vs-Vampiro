@@ -1136,3 +1136,8 @@ button {
   }
 
 }
+/* CONTROLE DE NAVEGAÇÃO ENTRE TELAS */
+
+.screen:not(.active) {
+    display: none !important;
+}
