@@ -117,7 +117,7 @@ button {
 
 
 /* =========================
-   TELAS
+   CONTROLE DAS TELAS
 ========================= */
 
 .screen {
@@ -128,13 +128,13 @@ button {
   top: 76px;
   bottom: 0;
 
-  display: none;
+  display: none !important;
 
   overflow: hidden;
 }
 
 .screen.active {
-  display: flex;
+  display: flex !important;
 }
 
 
