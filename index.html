@@ -1,324 +1,137 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="theme-color" content="#090719">
   <title>Vilarejos — Bruxos vs Vampiros</title>
-
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+<div id="game">
+  <header class="topbar">
+    <div class="logo">
+      <div class="logo-symbol">✦</div>
+      <div><strong>VILAREJOS</strong><small>BRUXOS VS VAMPIROS</small></div>
+    </div>
+    <div class="resources">
+      <div class="resource">🏆 <span id="trophies">0</span></div>
+      <div class="resource">🪙 <span id="coins">250</span></div>
+    </div>
+  </header>
 
-  <div id="game">
-
-    <!-- TOPO -->
-    <header class="topbar">
-      <div class="logo">
-        <div class="logo-symbol">✦</div>
-        <div>
-          <strong>VILAREJOS</strong>
-          <small>BRUXOS VS VAMPIROS</small>
+  <section id="lobby" class="screen active">
+    <div class="magic-background" aria-hidden="true">
+      <div class="moon"></div><div class="star star1">✦</div>
+      <div class="star star2">✧</div><div class="star star3">✦</div><div class="star star4">✧</div>
+    </div>
+    <div class="lobby-content">
+      <div class="hero-character">
+        <div class="character-glow"></div>
+        <div id="heroAvatar" class="hero-avatar">🧙‍♀️</div>
+        <div id="heroName" class="hero-name">Luna</div>
+        <div class="badges">
+          <span id="heroClass" class="badge witch">BRUXA</span>
+          <span id="heroRarity" class="badge rare">RARO</span>
         </div>
       </div>
-
-      <div class="resources">
-        <div class="resource">
-          🏆
-          <span id="trophies">0</span>
-        </div>
-
-        <div class="resource">
-          🪙
-          <span id="coins">250</span>
+      <div class="hero-info">
+        <p class="eyebrow">SEU CAMPEÃO</p>
+        <h1 id="heroTitle">Luna</h1>
+        <p id="heroDescription">Uma jovem bruxa que domina a magia da lua.</p>
+        <div class="stats">
+          <div class="stat"><span>❤️</span><strong id="heroHP">1150</strong><small>VIDA</small></div>
+          <div class="stat"><span>💥</span><strong id="heroDamage">150</strong><small>DANO</small></div>
+          <div class="stat"><span>⚡</span><strong id="heroSpeed">5</strong><small>VELOCIDADE</small></div>
         </div>
       </div>
-    </header>
-
-
-    <!-- TELAS -->
-
-    <!-- LOBBY -->
-    <section id="lobby" class="screen active">
-
-      <div class="magic-background">
-        <div class="moon"></div>
-        <div class="star star1">✦</div>
-        <div class="star star2">✧</div>
-        <div class="star star3">✦</div>
-        <div class="star star4">✧</div>
+      <div class="lobby-buttons">
+        <button id="playButton" class="main-button play">⚔️ <span>JOGAR</span></button>
+        <button id="charactersButton" class="main-button characters">🧙 <span>PERSONAGENS</span></button>
       </div>
+    </div>
+  </section>
 
-      <div class="lobby-content">
+  <section id="charactersScreen" class="screen">
+    <div class="screen-header">
+      <button id="backCharacters" class="back-button" aria-label="Voltar">←</button>
+      <div><h2>PERSONAGENS</h2><p>Escolha seu lutador.</p></div>
+    </div>
+    <div id="charactersGrid" class="characters-grid"></div>
+  </section>
 
-        <div class="hero-character">
+  <section id="modesScreen" class="screen">
+    <div class="screen-header">
+      <button id="backModes" class="back-button" aria-label="Voltar">←</button>
+      <div><h2>ESCOLHA O MODO</h2><p>Entre no Coliseu dos Vilarejos.</p></div>
+    </div>
+    <div class="modes">
+      <button class="mode-card" data-mode="duelo"><div class="mode-icon">⚔️</div><h3>DUELO 1V1</h3><p>Enfrente um adversário controlado pelo computador.</p><small>Combate clássico • Uma vitória</small></button>
+      <button class="mode-card" data-mode="treinamento"><div class="mode-icon">🎯</div><h3>TREINAMENTO</h3><p>Pratique seus ataques e movimentos sem receber dano.</p><small>Inimigo de treino • Sem recompensas</small></button>
+      <button class="mode-card" data-mode="arena"><div class="mode-icon">🏆</div><h3>ARENA</h3><p>Enfrente ondas de adversários cada vez mais fortes.</p><small>Sobrevivência • Recompensas por onda</small></button>
+    </div>
+  </section>
 
-          <div class="character-glow"></div>
-
-          <div id="heroAvatar" class="hero-avatar">
-            🧙‍♀️
-          </div>
-
-          <div id="heroName" class="hero-name">
-            Luna
-          </div>
-
-          <div class="badges">
-            <span id="heroClass" class="badge witch">
-              BRUXA
-            </span>
-
-            <span id="heroRarity" class="badge rare">
-              RARO
-            </span>
-          </div>
-
-        </div>
-
-
-        <div class="hero-info">
-
-          <h1 id="heroTitle">Luna</h1>
-
-          <p id="heroDescription">
-            Uma jovem bruxa que domina a magia da lua.
-          </p>
-
-          <div class="stats">
-
-            <div class="stat">
-              <span>❤️</span>
-              <strong id="heroHP">1150</strong>
-              <small>VIDA</small>
-            </div>
-
-            <div class="stat">
-              <span>💥</span>
-              <strong id="heroDamage">150</strong>
-              <small>DANO</small>
-            </div>
-
-            <div class="stat">
-              <span>⚡</span>
-              <strong id="heroSpeed">5</strong>
-              <small>VELOCIDADE</small>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="lobby-buttons">
-
-          <button id="playButton" class="main-button play">
-            ⚔️
-            <span>JOGAR</span>
-          </button>
-
-          <button id="charactersButton" class="main-button characters">
-            🧙
-            <span>PERSONAGENS</span>
-          </button>
-
-        </div>
-
+  <section id="battleScreen" class="screen battle-screen">
+    <canvas id="arenaCanvas" aria-label="Arena de batalha"></canvas>
+    <div class="battle-ui">
+      <div class="fighter-info player-info">
+        <div class="fighter-name"><span id="battlePlayerName">Luna</span></div>
+        <div class="health-bar"><div id="playerHealth" class="health-fill"></div></div>
+        <div id="playerHealthText">1150 / 1150</div>
+        <div class="energy-bar"><div id="playerEnergy" class="energy-fill"></div></div>
+        <small>ENERGIA DO SUPER</small>
       </div>
-
-    </section>
-
-
-    <!-- PERSONAGENS -->
-    <section id="charactersScreen" class="screen">
-
-      <div class="screen-header">
-
-        <button id="backCharacters" class="back-button">
-          ←
-        </button>
-
-        <div>
-          <h2>PERSONAGENS</h2>
-          <p>Escolha seu lutador.</p>
-        </div>
-
+      <div class="battle-center-info">
+        <div class="battle-score">🏆 <span id="battleScore">0</span></div>
+        <div id="modeLabel" class="mode-label">DUELO 1V1</div>
+        <div id="waveLabel" class="wave-label"></div>
       </div>
-
-      <div id="charactersGrid" class="characters-grid">
+      <div class="fighter-info enemy-info">
+        <div class="fighter-name"><span id="battleEnemyName">Guardião Sombrio</span></div>
+        <div class="health-bar enemy-health"><div id="enemyHealth" class="health-fill"></div></div>
+        <div id="enemyHealthText">1250 / 1250</div>
       </div>
-
-    </section>
-
-
-    <!-- MODOS -->
-    <section id="modesScreen" class="screen">
-
-      <div class="screen-header">
-
-        <button id="backModes" class="back-button">
-          ←
-        </button>
-
-        <div>
-          <h2>ESCOLHA O MODO</h2>
-          <p>Entre no Coliseu dos Vilarejos.</p>
-        </div>
-
+    </div>
+    <div class="battle-actions-top">
+      <button id="pauseButton" class="pause-button">Ⅱ PAUSAR</button>
+      <button id="exitBattleButton" class="pause-button">SAIR</button>
+    </div>
+    <div class="mobile-controls">
+      <div id="joystick" class="joystick" aria-label="Controle de movimento"><div id="joystickKnob"></div></div>
+      <div class="action-buttons">
+        <button id="attackButton" class="attack-button">⚔️<span>ATAQUE</span></button>
+        <button id="superButton" class="super-button">✨<span>SUPER</span></button>
       </div>
+    </div>
+    <div id="battleMessage" class="battle-message">PREPARE-SE!</div>
+    <div class="keyboard-hint">WASD / SETAS: MOVER • CLIQUE: ATAQUE • ESPAÇO: SUPER • ESC: PAUSAR</div>
+  </section>
 
-      <div class="modes">
-
-        <button class="mode-card" data-mode="duelo">
-          <div class="mode-icon">⚔️</div>
-          <h3>DUELO 1V1</h3>
-          <p>Enfrente um adversário controlado pelo computador.</p>
-        </button>
-
-        <button class="mode-card" data-mode="treinamento">
-          <div class="mode-icon">🎯</div>
-          <h3>TREINAMENTO</h3>
-          <p>Pratique seus ataques e movimentos.</p>
-        </button>
-
-        <button class="mode-card" data-mode="arena">
-          <div class="mode-icon">🏆</div>
-          <h3>ARENA</h3>
-          <p>Batalhe para conquistar troféus.</p>
-        </button>
-
+  <section id="resultScreen" class="screen result-screen">
+    <div class="result-card">
+      <div id="resultIcon" class="result-icon">🏆</div>
+      <p class="eyebrow">RESULTADO DA PARTIDA</p>
+      <h1 id="resultTitle">VITÓRIA!</h1>
+      <p id="resultText">Você venceu a batalha!</p>
+      <div class="rewards">
+        <div>🏆 <strong id="rewardTrophies">+8</strong><small>TROFÉUS</small></div>
+        <div>🪙 <strong id="rewardCoins">+20</strong><small>MOEDAS</small></div>
       </div>
+      <button id="continueButton" class="main-button play">CONTINUAR</button>
+    </div>
+  </section>
 
-    </section>
-
-
-    <!-- ARENA -->
-    <section id="battleScreen" class="screen battle-screen">
-
-      <canvas id="arenaCanvas"></canvas>
-
-      <div class="battle-ui">
-
-        <div class="fighter-info player-info">
-
-          <div class="fighter-name">
-            <span id="battlePlayerName">Luna</span>
-          </div>
-
-          <div class="health-bar">
-            <div id="playerHealth" class="health-fill"></div>
-          </div>
-
-          <div id="playerHealthText">
-            1150 / 1150
-          </div>
-
-        </div>
-
-
-        <div class="battle-score">
-          🏆 <span id="battleScore">0</span>
-        </div>
-
-
-        <div class="fighter-info enemy-info">
-
-          <div class="fighter-name">
-            <span id="battleEnemyName">Dante</span>
-          </div>
-
-          <div class="health-bar enemy-health">
-            <div id="enemyHealth" class="health-fill"></div>
-          </div>
-
-          <div id="enemyHealthText">
-            1250 / 1250
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- CONTROLES -->
-
-      <div class="mobile-controls">
-
-        <div id="joystick" class="joystick">
-          <div id="joystickKnob"></div>
-        </div>
-
-        <div class="action-buttons">
-
-          <button id="attackButton" class="attack-button">
-            ⚔️
-            <span>ATAQUE</span>
-          </button>
-
-          <button id="superButton" class="super-button">
-            ✨
-            <span>SUPER</span>
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div id="battleMessage" class="battle-message">
-        PREPARE-SE!
-      </div>
-
-
-      <div class="keyboard-hint">
-        WASD / SETAS • MOUSE • CLIQUE • ESPAÇO
-      </div>
-
-    </section>
-
-
-    <!-- RESULTADO -->
-    <section id="resultScreen" class="screen result-screen">
-
-      <div class="result-card">
-
-        <div id="resultIcon" class="result-icon">
-          🏆
-        </div>
-
-        <h1 id="resultTitle">
-          VITÓRIA!
-        </h1>
-
-        <p id="resultText">
-          Você venceu a batalha!
-        </p>
-
-        <div class="rewards">
-
-          <div>
-            🏆
-            <strong id="rewardTrophies">+8</strong>
-          </div>
-
-          <div>
-            🪙
-            <strong id="rewardCoins">+20</strong>
-          </div>
-
-        </div>
-
-        <button id="continueButton" class="main-button play">
-          CONTINUAR
-        </button>
-
-      </div>
-
-    </section>
-
-  </div>
-
-  <script src="script.js"></script>
-
+  <section id="pauseScreen" class="screen pause-screen">
+    <div class="result-card">
+      <div class="result-icon">⏸️</div><h1>PAUSADO</h1>
+      <p>Respire e prepare sua próxima jogada.</p>
+      <button id="resumeButton" class="main-button play">CONTINUAR</button>
+      <button id="pauseExitButton" class="main-button characters">SAIR DA PARTIDA</button>
+    </div>
+  </section>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
